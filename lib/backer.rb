@@ -7,8 +7,10 @@ attr_accessor :name
   end
 
   def back_project(project)
-    backed_projects << project
-    project.backers << self 
+    if @backed_projects.include?(project)
+    else
+        @backed_projects << project
+        project.add_backer(self)
+    end
   end
-
 end
